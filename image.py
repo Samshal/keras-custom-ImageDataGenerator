@@ -27,6 +27,7 @@ try:
 except ImportError:
     pil_image = None
 
+import rasterio
 
 def random_rotation(x, rg, row_axis=1, col_axis=2, channel_axis=0,
                     fill_mode='nearest', cval=0.):
@@ -320,20 +321,26 @@ def load_img(path, grayscale=False, target_size=None):
     # Raises
         ImportError: if PIL is not available.
     """
-    if pil_image is None:
-        raise ImportError('Could not import PIL.Image. '
-                          'The use of `array_to_img` requires PIL.')
-    img = pil_image.open(path)
-    if grayscale:
-        if img.mode != 'L':
-            img = img.convert('L')
-    else:
-        if img.mode != 'RGB':
-            img = img.convert('RGB')
-    if target_size:
-        hw_tuple = (target_size[1], target_size[0])
-        if img.size != hw_tuple:
-            img = img.resize(hw_tuple)
+    # if pil_image is None:
+    #     raise ImportError('Could not import PIL.Image. '
+    #                       'The use of `array_to_img` requires PIL.')
+    # img = pil_image.open(path)
+    # if grayscale:
+    #     if img.mode != 'L':
+    #         img = img.convert('L')
+    # else:
+    #     if img.mode != 'RGB':
+    #         img = img.convert('RGB')
+    # if target_size:
+    #     hw_tuple = (target_size[1], target_size[0])
+    #     if img.size != hw_tuple:
+    #         img = img.resize(hw_tuple)
+    # return img
+
+    src = rasterio.open(path)
+    img = rasterio.read()
+    img = pil_image.fromarray(np.uint8(img))
+
     return img
 
 
