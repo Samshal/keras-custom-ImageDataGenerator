@@ -3,4 +3,5 @@ setup.py
 keras_custom_ImageDataGenerator.egg-info/PKG-INFO
 keras_custom_ImageDataGenerator.egg-info/SOURCES.txt
 keras_custom_ImageDataGenerator.egg-info/dependency_links.txt
+keras_custom_ImageDataGenerator.egg-info/requires.txt
 keras_custom_ImageDataGenerator.egg-info/top_level.txt
