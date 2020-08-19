@@ -20,7 +20,7 @@ import tensorflow as tf
 from keras.layers.core import Lambda
 from skimage.color import rgb2lab, lab2rgb, rgb2gray
 
-from .. import backend as K
+# from .. import backend as K
 
 try:
     from PIL import Image as pil_image
