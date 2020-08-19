@@ -1,8 +1,8 @@
-from setuptools import setup, find_packages
+from distutils.core import setup
 
 
 setup(
     name="keras_custom_ImageDataGenerator",
-    version="1.0",
+    version="0.1dev",
     packages=['rasterio', 'numpy', 'scipy', 'PIL'],
 )
